@@ -1,0 +1,70 @@
+{% extends "layout.html" %}
+
+{% block body %}
+
+    <main id="main">
+
+        <!-- ======= Breadcrumbs ======= -->
+        <div class="breadcrumbs">
+        <div class="page-header d-flex align-items-center" style="background-image: url({{ url_for('static',filename='assets/img/page-header.jpg') }})">
+            <div class="container position-relative">
+            <div class="row d-flex justify-content-center">
+                <div class="col-lg-6 text-center">
+                <h2>News</h2>
+                <p>Fetched News articles.</p>
+                </div>
+            </div>
+            </div>
+        </div>
+        <nav>
+            <div class="container">
+            <ol>
+                <li><a href="/">Home</a></li>
+                <li>News</li>
+            </ol>
+            </div>
+        </nav>
+        </div>
+
+
+        <section id="service" class="services pt-0">
+            <div class="container" data-aos="fade-up">
+      
+              <div class="section-header">
+                <span>News</span>
+                <h2>News</h2>
+      
+              </div>
+
+              <div>
+                
+                {% for row in rows %}
+                    <div class="row gy-4">
+                        <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
+                            <div class="card">
+                                <!-- <div class="card-img">
+                                    <img src="{{ url_for('static',filename='assets/img/storage-service.jpg') }}" alt="" class="img-fluid"> 
+                                </div> -->
+                                <h3><a href= {{ row['URL'] }} target="_blank" class="stretched-link">{{ row['Title'] }}  </a></h3>
+                                <p> {{ row['Description'] }} </p>
+                            </div>
+                        </div>
+        
+                    </div>
+                {% endfor %}
+
+              </div>
+      
+              
+            </div>
+        </section>
+
+    </main>
+
+
+
+{% endblock %}
+
+
+
+

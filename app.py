@@ -55,7 +55,13 @@ def home():
 
                 # Write the data to the CSV file
                 writer.writerow([title, description, source, url, published_at])
-                # return company_name
+
+        with open('news_data.csv', 'r') as file:
+            rows=[]
+            reader = csv.DictReader(file)
+            for row in reader:
+                rows.append(row)    
+        return render_template('csv.html',rows=rows)
 
 
     return render_template('index.html')
