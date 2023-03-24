@@ -1,67 +1,52 @@
 import requests
 import csv
-from flask import Flask,render_template,url_for , request
+import pandas as pd
+from flask import Flask, render_template, url_for, request
 app = Flask(__name__)
 
+# d5e3da244db34daca7ac98b14139eb33
 
-@app.route("/", methods=["GET","POST"])
+
+@app.route("/", methods=["GET", "POST"])
 def home():
     if request.method == "POST":
-        company_name= request.form.get("company")
-        # print(company_name)
+        api_key = 'd5e3da244db34daca7ac98b14139eb33'
 
-        # Enter your News API key
-        api_key = "d5e3da244db34daca7ac98b14139eb33"
 
-        # Enter the search query
-        query = company_name
+        headers = {'Authorization': 'd5e3da244db34daca7ac98b14139eb33'}
 
-        # Set the API endpoint
-        url = "https://newsapi.org/v2/everything"
+        everything = 'https://newsapi.org/v2/everything?'
 
+
+        kwds = request.form.get("company")
+
+        sources = ['business-insider', 'google-news', 'financial-post',
+                'reuters', 'nbc-news', 'techcrunch', 'the-wall-street-journal']
+
+        sortby = 'popularity'
         params = {
-            "q": query,
-            "pageSize": 10,
-            "apiKey": "d5e3da244db34daca7ac98b14139eb33"  #d5e3da244db34daca7ac98b14139eb33
-        }
+            'q': kwds,
+            'apiKey': api_key,
+            'sortBy': sortby,
+            'language': 'en',
+            'page': 1
+                }
 
-        # Send a GET request to the API endpoint
-        response = requests.get(url,params=params)
+        response = requests.get(url=everything, headers=headers, params=params)
 
-        # Parse the JSON data from the response
-        data = response.json()
+        output = response.json()
 
-        # Extract the articles from the data
-        articles = data['articles']
+        articles = output['articles']
 
-        # Open a new CSV file to write the data to
-        with open('news_data.csv', mode='w', newline='') as file:
+        df = pd.DataFrame(articles)
 
-            # Create a writer object
-            writer = csv.writer(file)
-
-            # Write the header row
-            writer.writerow(['Title', 'Description', 'Source', 'URL', 'Published At'])
-
-        # Loop through each article
-            for article in articles:
-
-                # Extract the article details
-                title = article['title']
-                description = article['description']
-                source = article['source']['name']
-                url = article['url']
-                published_at = article['publishedAt']
-
-                # Write the data to the CSV file
-                writer.writerow([title, description, source, url, published_at])
-
+        df.to_csv('news_data.csv')
         with open('news_data.csv', 'r') as file:
-            rows=[]
+            rows = []
             reader = csv.DictReader(file)
             for row in reader:
-                rows.append(row)    
-        return render_template('csv.html',rows=rows)
+                rows.append(row)
+        return render_template('csv.html', rows=rows)
 
 
     return render_template('index.html')
