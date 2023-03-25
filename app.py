@@ -6,6 +6,7 @@ app = Flask(__name__)
 
 # d5e3da244db34daca7ac98b14139eb33
 
+global newsObject
 
 @app.route("/", methods=["GET", "POST"])
 def home():
@@ -39,9 +40,10 @@ def home():
         articles = output['articles']
 
         df = pd.DataFrame(articles)
-
         df.to_csv('news_data.csv')
-        with open('news_data.csv', 'r') as file:
+       
+        import projectModel
+        with open('COMMON-PROCESSED.csv', 'r', encoding="utf8") as file:
             rows = []
             reader = csv.DictReader(file)
             for row in reader:
