@@ -82,4 +82,8 @@ def service_details():
 def services():
     return render_template('services.html')
 
+@app.route("/dashboard")
+def dashboard():
+    return render_template('dashboard.html')
+
 app.run(debug=True)
