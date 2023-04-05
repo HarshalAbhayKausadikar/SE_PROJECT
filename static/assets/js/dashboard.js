@@ -8,7 +8,7 @@ function initViz() {
 	var url = "https://us-west-2b.online.tableau.com/t/mediaanalysis/views/MEDIA-ANALYSIS-FINAL/Dashboard1"; // Replace with your Tableau dashboard URL
 	var options = {
 		width: "100%",
-		height: "400px",
+		height: "800px",
 		hideTabs: true,
 		hideToolbar: true,
 		onFirstInteractive: function () {
@@ -48,3 +48,17 @@ function refreshViz()
 document.addEventListener("DOMContentLoaded", function () {
 	initViz();
 });
+
+
+
+function exportToPDF() {
+	viz.showExportPDFDialog();
+}
+
+function exportImage() {
+	viz.showExportImageDialog();
+}
+
+function exportPowerPoint() {
+	viz.showExportPowerPointDialog();
+}

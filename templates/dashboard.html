@@ -8,7 +8,10 @@
     <script src="{{ url_for('static',filename='assets/js/dashboard.js') }}"></script> 
 </head>
 <body>
+	
+	<button style="margin:30px" type="button" class="btn btn-primary btn-sm"  onclick="exportToPDF();">Export to PDF</button>
+    <button style="margin:30px" type="button" class="btn btn-primary btn-sm"  onclick="exportImage();">Export as Image</button>
+	<button style="margin:30px" type="button" class="btn btn-primary btn-sm" onclick="exportPowerPoint();">Export to PowerPoint</button>
 	<div id="tableauViz"></div>
-	<button onclick="refreshViz()" type="button" class="btn btn-primary btn-lg">Refresh Data</button>
 </body>
 </html>
