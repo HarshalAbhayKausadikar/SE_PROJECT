@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Plotly Carousel</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Slick Carousel CSS -->
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+
+    <!-- Plotly plot styles -->
+    <style>
+        .plot-container {
+            width: 100%;
+            height: 500px;
+        }
+    </style>
+</head>
+<body>
+    <h1>ANALYSIS</h1>
+
+    <!-- Carousel container -->
+    <div class="carousel-container">
+
+        <!-- Plotly plot iframes -->
+        <div><iframe src="{{ url_for('static',filename='plotly/pie.html') }}" class="plot-container"></iframe></div>
+        <div><iframe src="{{ url_for('static',filename='plotly/author.html') }}" class="plot-container"></iframe></div>
+        <div><iframe src="{{ url_for('static',filename='plotly/timeline.html') }}" class="plot-container"></iframe></div>
+        <div><iframe src="{{ url_for('static',filename='plotly/source.html') }}" class="plot-container"></iframe></div>
+        <div><iframe src="{{ url_for('static',filename='plotly/eachsource.html') }}" class="plot-container"></iframe></div>
+        <div><iframe src="{{ url_for('static',filename='plotly/avg_off_bysrc.html') }}" class="plot-container"></iframe></div>
+
+    </div>
+
+    <!-- Slick Carousel JavaScript -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+
+    <!-- Initialize Slick Carousel -->
+    <script>
+        $(document).ready(function() {
+            $('.carousel-container').slick({
+                dots: true,
+                arrows: true,
+                infinite: true,
+                speed: 500,
+                fade: true,
+                cssEase: 'linear',
+                adaptiveHeight: true,
+                autoplay: true,
+                autoplaySpeed: 2000
+            });
+        });
+    </script>
+
+</body>
+</html>
