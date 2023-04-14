@@ -9,10 +9,18 @@
           <h2 data-aos="fade-up">Unveiling Insights from the Media World</h2>
           <p data-aos="fade-up" data-aos-delay="100">gain a better understanding of public sentiment, identify trends, and track brand reputation</p>
 
+          
+          <div id="preloader-nlp">
+            <div class="loader-nlp"></div>
+          </div>
+          
+
           <form action="{{ url_for("home") }}" class="form-search d-flex align-items-stretch mb-3" data-aos="fade-up" data-aos-delay="200", method="post">
             <input type="text" name="company" class="form-control" placeholder="Enter your company name">
-            <button type="submit" class="btn btn-primary">Search</button>
+            <button type="submit" class="btn btn-primary" onclick="showPreloader()">Search</button>
           </form>
+            
+          
 
           <div class="row gy-4" data-aos="fade-up" data-aos-delay="400">
 
@@ -559,6 +567,22 @@
     </section><!-- End Frequently Asked Questions Section -->
 
   </main><!-- End #main -->
+
+  <script>
+    // Get the preloader element
+    const preloader_nlp = document.querySelector('#preloader-nlp');
+
+    // Hide the preloader on page load
+    window.addEventListener('load', () => {
+      preloader_nlp.style.display = 'none';
+    });
+
+    // Show the preloader when the form is submitted
+    document.querySelector('form').addEventListener('submit', () => {
+      preloader_nlp.style.display = 'flex';
+    });
+
+  </script>
 
 
   {% endblock %}
