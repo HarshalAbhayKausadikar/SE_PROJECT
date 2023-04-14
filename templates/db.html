@@ -1,3 +1,6 @@
+{% extends "layout.html" %}
+{% block body %}
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -14,7 +17,9 @@
         }
     </style>
 </head>
+
 <body>
+  
     <h1>ANALYSIS</h1>
 
     <!-- Carousel container -->
@@ -38,7 +43,7 @@
     <script>
         $(document).ready(function() {
             $('.carousel-container').slick({
-                dots: true,
+                dots: false,
                 arrows: true,
                 infinite: true,
                 speed: 500,
@@ -53,3 +58,5 @@
 
 </body>
 </html>
+
+{% endblock %}

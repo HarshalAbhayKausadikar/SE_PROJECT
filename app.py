@@ -84,6 +84,7 @@ def services():
 
 @app.route("/db")
 def dashboard():
+    import plotlyGraph
     return render_template('db.html')
 
 app.run(debug=True)
