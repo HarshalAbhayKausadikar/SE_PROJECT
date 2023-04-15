@@ -20,7 +20,7 @@
 :root {
   --color-default: #0a0d13;
   --color-primary: #0d42ff;
-  --color-secondary: #0e1d34;
+  --color-secondary: #010123;
 }
 
 /* Smooth scroll behavior */
@@ -139,7 +139,7 @@ section {
 
 .breadcrumbs .page-header:before {
   content: "";
-  background-color: rgba(14, 29, 52, 0.8);
+  background-color: rgba(2, 2, 43, 0.8);
   position: absolute;
   inset: 0;
 }
@@ -187,7 +187,7 @@ section {
 .breadcrumbs nav ol li+li::before {
   display: inline-block;
   padding-right: 10px;
-  color: #4278cc;
+  color: #010123;
   content: "/";
 }
 
@@ -341,7 +341,7 @@ section {
 }
 
 .header.sticked {
-  background: rgba(14, 29, 52, 0.9);
+  background: rgba(3, 3, 41, 0.9);
   padding: 15px 0;
   box-shadow: 0px 2px 20px rgba(14, 29, 52, 0.1);
 }
@@ -635,7 +635,7 @@ section {
 }
 
 .featured-services .service-item .icon i {
-  color: #001f8d;
+  color: #05055f;
   font-size: 48px;
   transition: 0.3s;
 }
@@ -688,7 +688,7 @@ section {
   font-weight: 700;
   font-size: 32px;
   font-family: var(--font-secondary);
-  color: #001f8d;
+  color: #04023e;
 }
 
 .about .content ul {
@@ -1786,7 +1786,7 @@ section {
   width: 100%;
   min-height: 50vh;    
   background-color: var(--color-secondary);
-  background-image: url("../img/hero-bg.png");
+  background-image: url("../img/test.jpg");
   background-size: cover;
   background-position: center;
   position: relative;

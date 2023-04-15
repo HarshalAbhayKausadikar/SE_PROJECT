@@ -49,13 +49,13 @@
                                     {% if row['Headline Sentiment']== "Very Positive" %}
                                         <span class="badge bg-success" style="z-index: 1; position: absolute; left:0;">{{ row['Headline Sentiment'] }}</span>
                                     {% elif row['Headline Sentiment']== "Positive" %}
-                                        <span class="badge bg-primary">{{ row['Headline Sentiment'] }}</span>
+                                        <span class="badge bg-primary" style="z-index: 1; position: absolute; left:0;">{{ row['Headline Sentiment'] }}</span>
                                     {% elif row['Headline Sentiment']== "Neutral" %}
-                                        <span class="badge bg-secondary">{{ row['Headline Sentiment'] }}</span>
+                                        <span class="badge bg-secondary" style="z-index: 1; position: absolute; left:0;">{{ row['Headline Sentiment'] }}</span>
                                     {% elif row['Headline Sentiment']== "Negative" %}
-                                        <span class="badge bg-warning text-dark">{{ row['Headline Sentiment'] }}</span>
+                                        <span class="badge bg-warning text-dark" style="z-index: 1; position: absolute; left:0;">{{ row['Headline Sentiment'] }}</span>
                                     {% else %}
-                                        <span class="badge bg-danger">{{ row['Headline Sentiment'] }}</span>
+                                        <span class="badge bg-danger" style="z-index: 1; position: absolute; left:0;">{{ row['Headline Sentiment'] }}</span>
                                     {% endif %}
                                         <img src="{{ row['urlToImage'] }}" alt="" class="img-fluid"> 
                                 </div>
