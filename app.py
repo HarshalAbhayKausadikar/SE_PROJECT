@@ -36,6 +36,7 @@ def home():
         response = requests.get(url=everything, headers=headers, params=params)
 
         output = response.json()
+        # print(output)
 
         articles = output['articles']
 

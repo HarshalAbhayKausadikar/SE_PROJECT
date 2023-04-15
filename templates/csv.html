@@ -46,7 +46,18 @@
                         <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
                             <div class="card">
                                 <div class="card-img">
-                                    <img src="{{ row['urlToImage'] }}" alt="" class="img-fluid"> 
+                                    {% if row['Headline Sentiment']== "Very Positive" %}
+                                        <span class="badge bg-success" style="z-index: 1; position: absolute; left:0;">{{ row['Headline Sentiment'] }}</span>
+                                    {% elif row['Headline Sentiment']== "Positive" %}
+                                        <span class="badge bg-primary">{{ row['Headline Sentiment'] }}</span>
+                                    {% elif row['Headline Sentiment']== "Neutral" %}
+                                        <span class="badge bg-secondary">{{ row['Headline Sentiment'] }}</span>
+                                    {% elif row['Headline Sentiment']== "Negative" %}
+                                        <span class="badge bg-warning text-dark">{{ row['Headline Sentiment'] }}</span>
+                                    {% else %}
+                                        <span class="badge bg-danger">{{ row['Headline Sentiment'] }}</span>
+                                    {% endif %}
+                                        <img src="{{ row['urlToImage'] }}" alt="" class="img-fluid"> 
                                 </div>
                                 <h3><a href= {{ row['url'] }} target="_blank" class="stretched-link">{{ row['Title'] }}  </a></h3>
                                 <p> {{ row['Description'] }} </p>
@@ -71,7 +82,3 @@
 
 
 {% endblock %}
-
-
-
-
