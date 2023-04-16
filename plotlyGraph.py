@@ -58,7 +58,12 @@ pyo.plot(fig, filename='static\plotly\\avg_off_bysrc.html', auto_open=False)
 
 
 
-fig = px.bar(df, x='Source', y='Offense Rating', color='Headline Sentiment', title='Source vs Offense Rating')
+color_map = {'Very Positive': 'green', 'Positive': 'lightgreen',
+             'Neutral': 'gray', 'Negative': 'pink', 'Very Negative': 'red'}
+
+color_order = ['Very Positive', 'Positive', 'Neutral', 'Negative', 'Very Negative']
+
+fig = px.bar(df, x='Source', y='Offense Rating', color='Headline Sentiment', title='Source vs Offense Rating', color_discrete_map=color_map, color_discrete_sequence=color_order)
 
 
 pyo.plot(fig, filename='static\plotly\source.html', auto_open=False)
@@ -143,6 +148,39 @@ fig.update_layout(
 
 
 pyo.plot(fig, filename='static\plotly\\timeline.html', auto_open=False)
+
+
+#BAR PLOT TITLE
+marker_selected = dict(symbol='star', size=10, color='red')
+
+# create the initial plot
+fig = px.bar(df, y='Title', x='Offense Rating', hover_data=['Source', 'url'])
+
+# define the callback function to update the marker symbol
+def update_marker(trace, points, state):
+    # set the selected points to have the custom marker
+    trace.marker.symbol = ['star' if i in points.point_inds else 'circle' for i in range(len(trace.x))]
+    # update the figure
+    fig.update_traces(marker=trace.marker)
+
+# assign the callback function to the plot
+fig.data[0].on_click(update_marker)
+
+# update the layout to make the plot wider
+# fig.update_layout(width=1000)
+fig.update_layout(
+    width=1000,
+    yaxis=dict(title=dict(text='Title', font=dict(size=14)), 
+               tickfont=dict(size=12), 
+               titlefont=dict(size=16), 
+               automargin=True, 
+               title_standoff=10)
+)
+
+pyo.plot(fig, filename='static\plotly\\title.html', auto_open=False)
+
+
+
 
 # # Create a range slider for offense rating
 # offense_slider = {'type': 'range', 'min': df['Offense Rating'].min(), 'max': df['Offense Rating'].max(), 'step': 1, 'value': [df['Offense Rating'].min(), df['Offense Rating'].max()]}

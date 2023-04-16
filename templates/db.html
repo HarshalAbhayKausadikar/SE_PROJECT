@@ -19,8 +19,18 @@
 </head>
 
 <body>
-  
-    <h1>ANALYSIS</h1>
+
+     <div class="breadcrumbs">
+        <div class="page-header d-flex align-items-center" style="background-image: url({{ url_for('static',filename='assets/img/page-header.jpg') }})">
+            <div class="container position-relative">
+            <div class="row d-flex justify-content-center">
+                <div class="col-md-6 text-center">
+                <h2>ANALYSIS</h2>
+                </div>
+            </div>
+            </div>
+        </div>
+        </div>
 
     <!-- Carousel container -->
     <div class="carousel-container">
@@ -32,6 +42,7 @@
         <div><iframe src="{{ url_for('static',filename='plotly/source.html') }}" class="plot-container"></iframe></div>
         <div><iframe src="{{ url_for('static',filename='plotly/eachsource.html') }}" class="plot-container"></iframe></div>
         <div><iframe src="{{ url_for('static',filename='plotly/avg_off_bysrc.html') }}" class="plot-container"></iframe></div>
+        <div><iframe src="{{ url_for('static',filename='plotly/title.html') }}" class="plot-container"></iframe></div>
 
     </div>
 
