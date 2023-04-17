@@ -36,6 +36,7 @@ def home():
         response = requests.get(url=everything, headers=headers, params=params)
 
         output = response.json()
+        # print(output)
 
         articles = output['articles']
 
@@ -82,8 +83,9 @@ def service_details():
 def services():
     return render_template('services.html')
 
-@app.route("/dashboard")
+@app.route("/db")
 def dashboard():
-    return render_template('dashboard.html')
+    import plotlyGraph
+    return render_template('db.html')
 
 app.run(debug=True)
