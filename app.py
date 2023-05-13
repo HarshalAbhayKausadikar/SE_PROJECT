@@ -63,22 +63,6 @@ def about():
 def contact():
     return render_template('contact.html')
 
-@app.route("/get-a-quote")
-def get_a_quote():
-    return render_template('get-a-quote.html')
-
-@app.route("/pricing")
-def pricing():
-    return render_template('pricing.html')
-
-@app.route("/sample-inner-page")
-def sample_inner_page():
-    return render_template('sample-inner-page.html')
-
-@app.route("/service-details")
-def service_details():
-    return render_template('service-details.html')
-
 @app.route("/services")
 def services():
     return render_template('services.html')
