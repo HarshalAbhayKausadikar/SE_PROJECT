@@ -1784,9 +1784,10 @@ section {
 --------------------------------------------------------------*/
 .hero {
   width: 100%;
-  min-height: 50vh;    
+  /* min-height: 50vh;     */
   background-color: var(--color-secondary);
   background-image: url("../img/test.jpg");
+  height: 100vh;
   background-size: cover;
   background-position: center;
   position: relative;
@@ -1805,6 +1806,9 @@ section {
 @media (max-width: 575px) {
   .hero h2 {
     font-size: 30px;
+  }
+  .hero{
+    background-position: left;
   }
 }
 
