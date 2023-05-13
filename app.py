@@ -55,29 +55,13 @@ def home():
     return render_template('index.html')
 
 
-@app.route("/about")
+@app.route("/team")
 def about():
-    return render_template('about.html')
+    return render_template('team.html')
 
 @app.route("/contact")
 def contact():
     return render_template('contact.html')
-
-@app.route("/get-a-quote")
-def get_a_quote():
-    return render_template('get-a-quote.html')
-
-@app.route("/pricing")
-def pricing():
-    return render_template('pricing.html')
-
-@app.route("/sample-inner-page")
-def sample_inner_page():
-    return render_template('sample-inner-page.html')
-
-@app.route("/service-details")
-def service_details():
-    return render_template('service-details.html')
 
 @app.route("/services")
 def services():

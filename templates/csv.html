@@ -10,10 +10,10 @@
             <div class="container position-relative">
             <div class="row d-flex justify-content-center">
                 <div class="col-lg-6 text-center">
-                <h2>News</h2>
-                <p>Fetched News articles.</p>
+                <h2>News Wall</h2>
+                <p>The news you need, when you need it</p>
 
-                <button id="tableau-analysis" type="button" class="btn btn-primary btn-lg">View Analysis</button>
+                <button id="tableau-analysis" type="button" class="btn btn-primary btn-lg">Insight Analyzer</button>
 
                 </div>
             </div>
@@ -47,17 +47,6 @@
                             <div class="card">
                                 <div class="card-img">
                                     {% if row['Headline Sentiment']== "Very Positive" %}
-<<<<<<< HEAD
-                                        <span class="badge bg-success">{{ row['Headline Sentiment'] }}</span>
-                                    {% elif row['Headline Sentiment']== "Positive" %}
-                                        <span class="badge bg-primary">{{ row['Headline Sentiment'] }}</span>
-                                    {% elif row['Headline Sentiment']== "Neutral" %}
-                                        <span class="badge bg-secondary">{{ row['Headline Sentiment'] }}</span>
-                                    {% elif row['Headline Sentiment']== "Negative" %}
-                                        <span class="badge bg-warning text-dark">{{ row['Headline Sentiment'] }}</span>
-                                    {% else %}
-                                        <span class="badge bg-danger">{{ row['Headline Sentiment'] }}</span>
-=======
                                         <span class="badge bg-success" style="z-index: 1; position: absolute; left:0;">{{ row['Headline Sentiment'] }}</span>
                                     {% elif row['Headline Sentiment']== "Positive" %}
                                         <span class="badge bg-primary" style="z-index: 1; position: absolute; left:0;">{{ row['Headline Sentiment'] }}</span>
@@ -67,7 +56,6 @@
                                         <span class="badge bg-warning text-dark" style="z-index: 1; position: absolute; left:0;">{{ row['Headline Sentiment'] }}</span>
                                     {% else %}
                                         <span class="badge bg-danger" style="z-index: 1; position: absolute; left:0;">{{ row['Headline Sentiment'] }}</span>
->>>>>>> 3b5e394abd127ea7fa68bb5646a5e2fd5d003e89
                                     {% endif %}
                                         <img src="{{ row['urlToImage'] }}" alt="" class="img-fluid"> 
                                 </div>
